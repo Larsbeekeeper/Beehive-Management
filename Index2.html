@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Beehive System</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                // Henter inn Jquery library til bruk i javascriptet
+</head>
+
+<body style="background-color: #FCE427; color: #120686; text-align: center;">
+      <h1>
+  <img src="Halmkube kvadrat.jpg" width="220px" height="220px">
+  Smarthive System --- Control Panel for the Apiary
+  <img src="Langstroth kvadrat.jpg" width="220px" height="220px"></H1>
+    <h4> Under Development</h4>
+<br>
+<br>
+Start and Stop of logging data from the beehives in the apiary
+    <br>
+    <button style="margin: 12px;" id="111" class="button">Start-11</button>
+    <button style="margin: 12px;" id="121" class="button">Start-12</button>
+    <button style="margin: 12px;" id="131" class="button">Start-13</button>
+    <button style="margin: 12px;" id="141" class="button">Start-14</button>
+    <br>
+    <button style="margin:12px;" id="110" class="button"> Stop-11</button>
+    <button style="margin:12px;" id="120" class="button"> Stop-12</button>
+    <button style="margin:12px;" id="130" class="button"> Stop-13</button>
+    <button style="margin:12px;" id="140" class="button"> Stop-14</button>
+    <br>
+    <script>                              //starting Javascript.
+    $(".button").click(function () {      //if any button from the ".button" class is clicked
+        var p = $(this).attr('id');       //get this button id and store it inside the "p" variable.
+        pin: p                            //a dictionary contains the button id to get sent to the web server.
+        $.get("http://192.168.1.4:80/", { //then send a get request to the web server"http://192.168.1.4:80/"
+                                          //(":80" means port number 80) with some data in a form of dictionary {pin: p} which is the butoon id.
+                                          //IMPORTANT NOTE: DON'T FORGET TO CHANGE THE IP ADDRESS WITH YOUR ESP8266 NEW IP ADDRESS.
+        pin: p
+        });
+    });
+</script>
+</body>
+</html>
